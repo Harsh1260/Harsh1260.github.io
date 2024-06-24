@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Hunt Registration</title>
+    <link rel="stylesheet" href="/css/Navigations.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-z...your-integrity-hash...=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css" />
+    <link rel="icon" href="/Photos/Frontpage/Fusion fest Hub.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Set background image and cover full screen */
+            background-image: url('/Photos/Protsahan/th.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 32%; /* Adjusted width */
+            margin-top: 100px; /* Center the form horizontally */
+            margin-left: 35%;
+            background: rgba(255, 255, 255, 0.87); /* Increased opacity */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Include padding and border in the width */
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Navi">
+        <ul class="hd nav-list">
+            <li class="nv"><a href="Protsahan.html"><b><h2>Events</h2></b></a></li>
+            <li class="nv"><a href="FP.html"><b><h2>Home</h2></b></a></li>
+            <li class="nv"><a href="team.html"><b><h2>Team</h2></b></a></li>
+            <li class="h2"><img src="Your paragraph text.png" alt="" style="height: 70px;"></li>
+        </ul>      
+    </div>
+<div class="container">
+    <h2>Talent Hunt Registration</h2>
+    <form id="registration-form" action="http://localhost:3002/talenthunt" method="POST" >
+        <label for="participant-name">Participant Name:</label>
+        <input type="text" id="participant-name" name="participant-name"  />
+
+        <label for="contact-number">Contact Number:</label>
+        <input type="text" id="contact-number" name="contact-number"  />
+
+        <label for="year">Year:</label>
+        <select id="year" name="year">
+            <option value="">Select Year</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+        </select>
+
+        <label>Talent Category:</label>
+        <div>
+            <label><input type="radio" name="talent-category" value="dance"> Dance (Solo, Duo, or Group)</label><br>
+            <label><input type="radio" name="talent-category" value="music"> Music (Solo, Duo, or Group Singing, Rap, Beat-box, etc.)</label><br>
+            <label><input type="radio" name="talent-category" value="creative"> Creative (Poetry, Stand-up, Magic, etc.)</label>
+        </div>
+
+
+        <input type="submit" value="Register" />
+    </form>
+</div>
+
+<script>
+document.getElementById("registration-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    console.log("Form submitted");
+    const participantName = document.getElementById("participant-name").value;
+    const contactNumber = document.getElementById("contact-number").value;
+    const year = document.getElementById("year").value;
+    const talentCategory = document.querySelector('input[name="talent-category"]:checked').value; // Get the value of the checked radio button
+
+    console.log("participant name:", participantName);
+    console.log("contact-number:", contactNumber);
+    console.log("year:", year);
+    console.log("talent-category:", talentCategory);
+
+    // Validate participant name (5-15 letters)
+    if (!/^[a-zA-Z ]{5,15}$/.test(participantName)) {
+        event.preventDefault();
+        alert("Participant name must be 5-15 letters.");
+        return;
+    }
+
+    // Validate contact number
+    if (!/^\d{10}$/.test(contactNumber)) {
+        event.preventDefault();
+        alert("Please enter a valid 10-digit contact number.");
+        return;
+    }
+
+    // Validate year (must be selected)
+    if (year === "") {
+        event.preventDefault();
+        alert("Please select the year.");
+        return;
+    }
+
+    // Validate talent category (must be selected)
+    if (!talentCategory) {
+        event.preventDefault();
+        alert("Please select a talent category.");
+        return;
+    }
+
+    const formData = {
+        'participant-name': participantName,
+        'contact-number': contactNumber,
+        year: year,
+        'talent-category': talentCategory,
+    };
+
+    fetch("http://localhost:3002/talenthunt", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error); // Display the error message
+        } else {
+            alert("Record inserted successfully"); // Show success message or redirect
+            // Redirect to protsahan.html after successful insertion
+            console.log("Redirecting to Protsahan.html");
+            window.location.href = "Protsahan.html";
+
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
+
+
+</script>
+
+<footer>
+    <ul class="social_icon">
+      <li><a href="https://www.instagram.com/protsahanculturalfest/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>         
+      <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://youtu.be/fscoN_2PRjQ?feature=shared"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+    <ul class="menu">
+      <li><a href="/Frontpage.html">Home</a></li>
+      <li><a href="/Ambiora/Amb.html">Ambiora</a></li>
+      <li><a href="/Protsahan/prost.html">Protsahan</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Report an issue</a></li>
+    </ul>
+    <p>&copy; 2024 Fusion Fest Hub. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

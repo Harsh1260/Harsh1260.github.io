@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Registration</title>
+    <link rel="stylesheet" href="/css/Navigations.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-z...your-integrity-hash...=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css" />
+    <link rel="icon" href="/Photos/Frontpage/Fusion fest Hub.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/Photos/AMB/Drone.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            width: 25%; /* Adjusted width */
+            margin-top: 132px; /* Center the form horizontally */
+            margin-left: 37%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: inline-block;
+            width: 40%; /* Adjust the width as needed */
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="submit"],
+        select {
+            width: calc(60% - 22px); /* Adjusted width to align with labels */
+            display: inline-block;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            opacity: 0.7;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            width: 100%;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            margin-left: 0;
+            margin-right: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        label {
+            color: black;
+            font-size: medium;
+        }
+
+        /* Hide member count and error message */
+        #member-count,
+        #error-message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="Navi">
+        <ul class="hd nav-list">
+            <li class="nv"><a href="Amb_event.html"><b><h2>Events</h2></b></a></li>
+            <li class="nv"><a href="/Frontpage.html"><b><h2>Home</h2></b></a></li>
+            <li class="nv"><a href="/team.html"><b><h2>Team</h2></b></a></li>
+            <li class="h2"><img src="/Photos/Frontpage/Your paragraph text.png paragraph text.png" alt="" style="height: 70px;"></li>
+        </ul>      
+    </div>
+    <div class="container">
+        <h2>Drone Registration</h2>
+        <form id="registration-form" action="http://localhost:3001/Drone" method="POST">
+            <input type="hidden" id="st" name="hk" value="Your St" />
+    
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" >
+    
+            <!-- Replace "Number of Members" with "Group Members" -->
+            <label for="group-members">Group Members:</label>
+            <input type="text" id="group-members" name="Group_Members" />
+    
+            <label for="contact-number">Contact Number:</label>
+            <input type="text" id="contact-number" name="Contact_Number" />
+    
+            <!-- Add Department field -->
+            <label for="department">Department:</label>
+            <select id="department" name="Department" >
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="AIML">AIML</option>
+            </select>
+    
+            <!-- Add Year field -->
+            <label for="year">Year:</label>
+            <select id="year" name="Year" >
+                <option value="">Select Year</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+            </select>
+    
+            <input type="submit" value="Register" name="save" />
+        </form>
+    </div>
+
+    <script>
+  document.getElementById("registration-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    console.log("Form submitted");
+
+    const name = document.getElementById("name").value;
+    const contactNumber = document.getElementById("contact-number").value;
+    const year = document.getElementById("year").value;
+    const department = document.getElementById("department").value;
+    const groupMembers = document.getElementById("group-members").value;
+
+    // Log the form data to verify if it's captured correctly
+    console.log("Name:", name);
+    console.log("Contact Number:", contactNumber);
+    console.log("Year:", year);
+    console.log("Department:", department);
+    console.log("Group Members:", groupMembers);
+
+    // Validate participant name (5-15 letters)
+    if (!/^[a-zA-Z ]{5,15}$/.test(name)) {
+        alert("Participant name must be 5-15 letters.");
+        return;
+    }
+
+    // Validate contact number
+    if (!/^\d{10}$/.test(contactNumber)) {
+        alert("Please enter a valid 10-digit contact number.");
+        return;
+    }
+
+    // Validate year (must be selected)
+    if (year === "") {
+        alert("Please select the year.");
+        return;
+    }
+
+    // Validate department (must be selected)
+    if (department === "") {
+        alert("Please select the department.");
+        return;
+    }
+
+    // Validate group members count (2-4 members)
+    if (isNaN(groupMembers) || groupMembers < 2 || groupMembers > 4) {
+        alert("Group members count must be a number between 2 and 4.");
+        return;
+    }
+
+    // Prepare data to be sent to the server
+    const formData = {
+        name: name,
+        'group-members': groupMembers,
+        'contact-number': contactNumber,
+        department: department,
+        year: year
+    };
+
+    fetch("http://localhost:3001/Drone", {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error); // Display the error message
+            } else {
+                alert("Record inserted successfully"); // Show success message or redirect
+                // Redirect to Amb_event.html after successful insertion
+                console.log("Redirecting to Amb_event.html");
+                window.location.href = "Amb_event.html";
+
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+
+    </script>
+    <footer>
+        <ul class="social_icon">
+          <li><a href="https://www.instagram.com/protsahanculturalfest/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>         
+          <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://youtu.be/fscoN_2PRjQ?feature=shared"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+        <ul class="menu">
+          <li><a href="/Frontpage.html">Home</a></li>
+          <li><a href="/Ambiora/Amb.html">Ambiora</a></li>
+          <li><a href="/Protsahan/prost.html">Protsahan</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Report an issue</a></li>
+        </ul>
+        <p>&copy; 2024 Fusion Fest Hub. All rights reserved.</p>
+      </footer>
+</body>
+</html>

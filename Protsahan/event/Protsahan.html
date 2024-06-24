@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event</title>
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/Navigations.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-z...your-integrity-hash...=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
+  <link rel="icon" href="/Photos/Frontpage/Fusion fest Hub.png" type="image/x-icon">
+  <style>
+    h2{
+      color: black;
+    }
+    
+    .shop-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      position: relative;
+      top: 150px;
+    }
+
+    .box {
+      height: 400px;
+      width: calc(30% - 20px); /* Adjusted width */
+      background-color: white;
+      padding: 20px 0px 15px;
+      margin-top: 15px;
+      margin-bottom: 220px; /* Added margin */
+      margin-left: 10px; /* Added margin */
+      margin-right: 10px; /* Added margin */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden; /* Added to hide overflow from overlay */
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .box:hover .overlay {
+      height: 100%; /* Show overlay on hover */
+    }
+
+    .box-img {
+      height: 280px; /* Reduced height to accommodate margin */
+      background-size: cover;
+      margin: 10px; /* Added margin */
+      position: relative; /* Added position relative */
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Adjust overlay color and opacity */
+      overflow: hidden;
+      width: 100%;
+      height: 0; /* Initial height of overlay */
+      transition: height 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    .overlay-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    .box-content {
+      position: relative;
+    }
+
+    .box-content h2 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .box-content p {
+      color: #007185;
+    }
+
+    /* Remove the grey overlay */
+    .box-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .nv_h{
+        color: black;
+      }
+      .nv_team{
+        margin-right: 20px;
+      }
+      .p {
+        margin-left: 12px;
+      }
+  </style>
+</head>
+<body>
+  <div class="Navi">
+    <ul class="hd nav-list">
+      <li class="nv"><a href="/event.html "><b><h2 class="nv_h">Events</h2></b></a></li>
+      <li class="nv"><a href="/Frontpage.html"><b><h2 class="nv_h">Home</h2></b></a></li>
+      <li class="nv nv_team"><a href="/team.html"><b><h2 class="nv_h">Team</h2></b></a></li>
+      <li class="h2"><img src="/Photos/Frontpage/Your paragraph text.png" alt="" style="height: 70px;"></li>
+    </ul>      
+  </div>
+  <div class="shop-section">
+    <div class="box">
+      <a href="Stall.html">
+        <div class="box-content">
+          <h2 class="p">Stall</h2>
+          <div class="box-img" style="background-image: url('/Photos/Protsahan/stall.png')">
+            <div class="overlay">
+              <div class="overlay-content">
+                <ul>
+                  <li><strong>Description:</strong> Explore a variety of food, games, and merchandise from different stalls.</li>
+                  <li><strong>Location:</strong> Cricket Ground</li>
+                  <li><strong>Capacity:</strong> Over 15 stalls offering a diverse range of products and services</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="box">
+      <a href="urban.html">
+        <div class="box-content">
+          <h2 class="p">Urban Games</h2>
+          <div class="box-img" style="background-image: url('/Photos/Protsahan/ug.png')">
+            <div class="overlay">
+              <div class="overlay-content">
+                <ul>
+                  <li><strong>Duration:</strong> 3 days</li>
+                  <li><strong>Location:</strong>Football Ground</li>
+                  <li><strong>Games:</strong> 
+                    <ul>
+                      <li>Paintball</li>
+                      <li>Jenga</li>
+                      <li>Human Fooseball</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="box">
+      <a href="drone4.html">
+        <div class="box-content">
+          <h2 class="p">Talent Hunt</h2>
+          <div class="box-img" style="background-image: url('/Photos/Protsahan/th.png')">
+            <div class="overlay">
+              <div class="overlay-content">
+                <ul>
+                  <li><strong>Duration:</strong> 2 day</li>
+                  <li><strong>Location:</strong> College Auditorium</li>
+                  <li><strong>Participants:</strong> Students from various branches showcasing their talents in singing, dancing, and magic</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <ul class="social_icon">
+      <li><a href="https://www.instagram.com/protsahanculturalfest/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>         
+      <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://youtu.be/fscoN_2PRjQ?feature=shared"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+    <ul class="menu">
+      <li><a href="/Frontpage.html">Home</a></li>
+      <li><a href="/Ambiora/Amb.html">Ambiora</a></li>
+      <li><a href="/Protsahan/prost.html">Protsahan</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Report an issue</a></li>
+    </ul>
+    <p>&copy; 2024 Fusion Fest Hub. All rights reserved.</p>
+  </footer>
+</body>
+</html>

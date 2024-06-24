@@ -1,0 +1,95 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.8em ;
+    color: #666;
+    overflow-x: hidden; /* Added to prevent horizontal scroll */
+}
+
+.ping1, .ping2, .ping3, .ping4, .ping5, .ping6 {
+    position: relative;
+    height: 100vh; /* Ensuring each section covers the full viewport height */
+    overflow: hidden; /* Added to prevent text overflow */
+}
+
+.ptext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    z-index: 1; /* Ensure text is above the video */
+}
+
+.textbg {
+    background: rgba(0, 0, 0, 0.6); /* Added transparency for better text readability */
+    padding: 20px;
+    border-radius: 70pt;
+}
+
+.section {
+    padding: 50px 80px;
+    text-align: center;
+}
+
+.section-light {
+    background-color: #f4f4f4;
+    color: black;
+    text-align: center;
+}
+
+.section-light h1 {
+    text-align: center;
+    color: red;
+}
+::-webkit-scrollbar {
+    width: 10px; /* width of the scrollbar */
+    background-color: transparent; /* background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* color of the scrollbar thumb */
+    border-radius: 5px; /* rounded corners for the scrollbar thumb */
+}
+
+.text-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* Optionally, you can add hover effects */
+.text-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.hidden{
+    display: none;
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 9999; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }

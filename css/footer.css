@@ -1,0 +1,75 @@
+/* Footer styles */
+footer {
+  background-color: #37383d;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* Ensure relative positioning */
+}
+
+.footer__logo {
+  height: 5rem;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  mix-blend-mode: color-burn;
+}
+
+.footer_description {
+  color: #fff;
+  font-size: medium;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-bottom: 30px;
+}
+
+.footer_heading {
+  color: red;
+  padding-left: 640px;
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+/* Social icons and menu */
+footer .social_icon,
+footer .menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px 2px;
+  flex-wrap: wrap;
+}
+
+footer .social_icon li,
+footer .menu li {
+  list-style: none;
+}
+
+footer .social_icon li a,
+footer .menu li a {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 15px;
+  display: inline-block;
+  transition: 0.5s;
+  margin-bottom: 20px; /* Adjusted margin for consistency */
+}
+
+footer .social_icon li a:hover,
+footer .menu li a:hover {
+  transform: translateY(-10px);
+}
+
+footer .menu li a {
+  text-decoration: none;
+  opacity: 0.75;
+  font-size: large;
+}
+
+footer .menu li a:hover {
+  opacity: 1;
+}
+

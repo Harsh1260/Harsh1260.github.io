@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/Navigations.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-z...your-integrity-hash...=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css" />
+    <link rel="icon" href="/Photos/Frontpage/Fusion fest Hub.png fest Hub.png" type="image/x-icon">
+    <style>
+      h2 {
+        color: black;
+        text-align: left;
+        text-decoration: none;
+        margin-left: 12px;
+      }
+      .container {
+        position: relative;
+        width: 100%; /* Adjust as per your requirement */
+      }
+
+      .image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(67, 73, 76, 0.6); /* Use rgba format with the alpha value */
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: 0.5s ease;
+      }
+
+      .box:hover .overlay {
+        /* Changed selector to apply overlay only on hover of the box */
+        height: 100%;
+      }
+
+      .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .text ul li {
+        color: white;
+      }
+
+      .shop-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        background-color: #e2e7e6;
+      }
+
+      .box {
+        height: 400px;
+        width: 23%;
+        background-color: white;
+        padding: 20px 0px 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .box-img {
+        height: 300px;
+        background-size: cover;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .box-content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        position: relative;
+      }
+
+      .box-content h2 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .box-content p {
+        color: #007185;
+      }
+
+      /* Remove the grey overlay */
+      .box-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .nv_h{
+        color: #e2e7e6;
+      }
+      .nv_team{
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Navi">
+      <ul class="hd nav-list">
+          <li class="nv"><a href="/event.html"><b><h2>Events</h2></b></a></li>
+          <li class="nv"><a href="/Frontpage.html"><b><h2>Home</h2></b></a></li>
+          <li class="nv"><a href="/team.html"><b><h2>Team</h2></b></a></li>
+          <li class="h2"><img src="/Photos/Frontpage/Your paragraph text.png" alt="" style="height: 70px;"></li>
+      </ul>      
+  </div>
+
+    <div class="container">
+      <div class="shop-section">
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                  <li><strong>Duration:</strong> 2 days</li>
+                  <li><strong>Location:</strong> Virtual</li>
+                  <li><strong>Theme:</strong> Future Technologies</li>
+                  <li><strong>Prizes:</strong> Cash prizes and certificates</li>
+                  <li><strong>Participants:</strong> Open to all students</li>
+                </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/HK.png')"></div>
+          </div>
+          <a href="HK.html"><h2>Hackathon</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong> 3 days</li>
+                    <li><strong>Location:</strong> Online</li>
+                    <li><strong>Games:</strong> Dota 2, CS:GO, League of Legends</li>
+                    <li><strong>Prizes:</strong> Gaming gear and cash prizes</li>
+                    <li><strong>Participants:</strong> Professional and amateur gamers</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/EA.png')"></div>
+          </div>
+          <a href="E-s.html"><h2>E-sports</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong>1 day</li>
+                    <li><strong>Location:</strong>Outdoor</li>
+                    <li><strong>Theme:</strong>Adventure and exploration</li>
+                    <li><strong>Prizes:</strong>Cash prizes and gift vouchers</li>
+                    <li><strong>Participants:</strong>Teams of 2-4 members</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/T.png')"></div>
+          </div>
+          <a href="TH.html"><h2>Treasure Hunt</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong>1 day workshop</li>
+                    <li><strong>Location:</strong>Indoor</li>
+                    <li><strong>Activities:</strong>Drone assembly, flying techniques, racing</li>
+                    <li><strong>Prizes:</strong>Drone accessories and certificates</li>
+                    <li><strong>Participants:</strong>Drone enthusiasts and beginners</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/DR.png')"></div>
+          </div>
+          <a href="Drone.html"><h2>Drone</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong>24 hours</li>
+                    <li><strong>Location:</strong>Virtual</li>
+                    <li><strong>Languages:</strong>Python,Java,C++</li>
+                    <li><strong>Challenges:</strong>problem-solving, coding puzzles</li>
+                    <li><strong>Prizes:</strong>online courses, and certificates</li>
+                    <li><strong>Participants:</strong>Programmers and coding enthusiasts</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/CH.png')"></div>
+          </div>
+          <a href="CH.html"><h2>Coding Hunt</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong>2 days</li>
+                    <li><strong>Location:</strong>On-site</li>
+                    <li><strong>Activities:</strong>Bridge construction, testing, and competition</li>
+                    <li><strong>Materials:</strong>Provided by organizers</li>
+                    <li><strong>Prizes:</strong>Engineering kits and certificates</li>
+                    <li><strong>Participants:</strong>Engineering students</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/BAB.png')"></div>
+          </div>
+          <a href="BAB.html"><h2>Build and Bridge</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong>1 day tournament</li>
+                    <li><strong>Location:</strong>Indoor</li>
+                    <li><strong>Teams:</strong>Competing robots controlled by participants</li>
+                    <li><strong>Rules:</strong>Follow official Robo Soccer competition rules</li>
+                    <li><strong>Prizes:</strong>Robotics kits and trophies</li>
+                    <li><strong>Participants:</strong>Robotics enthusiasts</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/RS.png')"></div>
+          </div>
+          <a href="RS.html"><h2>Robbo Soccer</h2></a>
+        </div>
+
+        <div class="box">
+          <div class="box-content">
+            <div class="overlay">
+              <div class="text">
+                <ul>
+                    <li><strong>Duration:</strong>3 days</li>
+                    <li><strong>Location:</strong>Online</li>
+                    <li><strong>Challenges:</strong>Cryptocurrency puzzles, blockchain tasks</li>
+                    <li><strong>Rewards:</strong>Cryptocurrency prizes, digital assets</li>
+                    <li><strong>Participants:</strong>Cryptocurrency enthusiasts, blockchain developers</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="box-img" style="background-image: url('/Photos/AMB/CQ.png')"></div>
+          </div>
+          <a href="CQ.html"><h2>Crypto Quest</h2></a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <ul class="social_icon">
+        <li>
+          <a
+            href="https://www.instagram.com/protsahanculturalfest/?hl=en"
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://youtu.be/fscoN_2PRjQ?feature=shared"
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li><a href="/Frontpage.html">Home</a></li>
+        <li><a href="/Ambiora/Amb.html">Ambiora</a></li>
+        <li><a href="/Protsahan/prost.html">Protsahan</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Report an issue</a></li>
+      </ul>
+      <p>&copy; 2024 Fusion Fest Hub. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

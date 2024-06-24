@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stall Registration</title>
+    <link rel="stylesheet" href="/css/Navigations.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-z...your-integrity-hash...=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css" />
+    <link rel="icon" href="/Photos/Frontpage/Fusion fest Hub.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/Photos/Protsahan/stall.png');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            width: 25%; /* Adjusted width */
+            margin-top: 172px ; /* Center the form horizontally */
+            margin-left: 37%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 83px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: inline-block;
+            width: 40%; /* Adjust the width as needed */
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="submit"] {
+            width: calc(60% - 22px); /* Adjusted width to align with labels */
+            display: inline-block;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            opacity: 0.7;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            width: 100%;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            margin-left: 0;
+            margin-right: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        label {
+            color: black;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div class="Navi">
+        <ul class="hd nav-list">
+            <li class="nv"><a href="Protsahan.html"><b><h2>Events</h2></b></a></li>
+            <li class="nv"><a href="/Frontpage.html"><b><h2>Home</h2></b></a></li>
+            <li class="nv"><a href="/team.html"><b><h2>Team</h2></b></a></li>
+            <li class="h2"><img src="/Photos/Frontpage/Your paragraph text.png" alt="" style="height: 70px;"></li>
+        </ul>      
+    </div>
+<div class="container">
+    <h2>Stall Registration</h2>
+    <form id="registration-form" action="http://localhost:3002/stalls" method="POST" >
+        <input type="hidden" id="stall" name="stall" value="Your Stall" />
+
+        <label for="stall-name">Stall Name:</label>
+        <input type="text" id="stallname" name="stallname"  />
+
+        <label for="leader-name">Leader Name:</label>
+        <input type="text" id="leadername" name="leadername" />
+
+        <label for="member-count">Number of Members (3-20):</label>
+        <input type="number" id="member-count" name="member-count"/>
+
+        <label for="contact-number">Contact Number:</label>
+        <input type="text" id="contact-number" name="contact-number" />
+
+        <input type="submit" value="Register" />
+    </form>
+</div>
+
+<script>
+    document.getElementById("registration-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission behavior
+
+        console.log("Form submitted");
+        const stallName = document.getElementById("stallname").value;
+        const leaderName = document.getElementById("leadername").value;
+        const memberCount = document.getElementById("member-count").value;
+        const contactNumber = document.getElementById("contact-number").value;
+
+        console.log("stallName:", stallName);
+        console.log("leaderName:", leaderName);
+        console.log("memberCount:", memberCount);
+        console.log("contactNumber:", contactNumber);
+
+        const nameRegex = /^[a-zA-Z ]{5,15}$/;
+
+
+        // Check if any field is empty
+        if (stallName.trim() === '' || leaderName.trim() === '' || memberCount.trim() === '' || contactNumber.trim() === '') {
+            event.preventDefault();
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Check stall name
+        if (!nameRegex.test(stallName)) {
+            event.preventDefault();
+            document.getElementById("stallname").classList.add("error"); // Corrected ID here
+            const errorMessage = document.createElement("div");
+            errorMessage.classList.add("error-message");
+            errorMessage.textContent = "Please enter a valid stall name (5-15 letters).";
+            document.getElementById("stallname").parentNode.appendChild(errorMessage); // Corrected ID here
+        }
+
+
+
+        // Check leader name
+        if (!nameRegex.test(leaderName)) {
+            event.preventDefault();
+            document.getElementById("leadername").classList.add("error");
+            const errorMessage = document.createElement("div");
+            errorMessage.classList.add("error-message");
+            errorMessage.textContent = "Please enter a valid leader name (5-15 letters).";
+            document.getElementById("leadername").parentNode.appendChild(errorMessage);
+        }
+
+        // Check member count
+        if (memberCount < 3 || memberCount > 20 || isNaN(memberCount)) {
+            event.preventDefault();
+            document.getElementById("member-count").classList.add("error");
+            const errorMessage = document.createElement("div");
+            errorMessage.classList.add("error-message");
+            errorMessage.textContent = "Please enter a valid number between 3 and 20.";
+            document.getElementById("member-count").parentNode.appendChild(errorMessage);
+        }
+
+        // Check contact number
+        if (!/^\d{10}$/.test(contactNumber)) {
+            event.preventDefault();
+            document.getElementById("contact-number").classList.add("error");
+            const errorMessage = document.createElement("div");
+            errorMessage.classList.add("error-message");
+            errorMessage.textContent = "Please enter a valid 10-digit contact number.";
+            document.getElementById("contact-number").parentNode.appendChild(errorMessage);
+        }
+
+        const formData = {
+        stallName: stallName,
+        leaderName: leaderName,
+        'member-count': memberCount,
+        'contact-number': contactNumber
+    };
+
+    fetch("http://localhost:3002/stalls", {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error); // Display the error message
+            } else {
+                alert("Record inserted successfully"); // Show success message or redirect
+                // Redirect to protsahan.html after successful insertion
+                console.log("Redirecting to Protsahan.html");
+                window.location.href = "Protsahan.html";
+
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+</script>
+
+<footer>
+    <ul class="social_icon">
+      <li><a href="https://www.instagram.com/protsahanculturalfest/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://youtu.be/fscoN_2PRjQ?feature=shared"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+    <ul class="menu">
+      <li><a href="/Frontpage.html">Home</a></li>
+      <li><a href="/Ambiora/Amb.html">Ambiora</a></li>
+      <li><a href="/Protsahan/prost.html">Protsahan</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Report an issue</a></li>
+    </ul>
+    <p>&copy; 2024 Fusion Fest Hub. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

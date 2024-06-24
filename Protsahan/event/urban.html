@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Games Registration</title>
+    <link rel="stylesheet" href="/css/Navigations.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-z...your-integrity-hash...=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css" />
+    <link rel="icon" href="/Photos/Frontpage/Fusion fest Hub.png" type="image/x-icon">
+    <style>
+         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/Photos/Protsahan/ug.png');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            width: 25%; /* Adjusted width */
+            margin-top: 172px ; /* Center the form horizontally */
+            margin-left: 37%;
+            margin-bottom: 178px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: inline-block;
+            width: 40%; /* Adjust the width as needed */
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="submit"] {
+            width: calc(60% - 22px); /* Adjusted width to align with labels */
+            display: inline-block;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            opacity: 0.7;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            width: 100%;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            margin-left: 0;
+            margin-right: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        label {
+            color: black;
+            font-size: medium;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="Navi">
+        <ul class="hd nav-list">
+            <li class="nv"><a href="Protsahan.html"><b><h2>Events</h2></b></a></li>
+            <li class="nv"><a href="/Frontpage.html"><b><h2>Home</h2></b></a></li>
+            <li class="nv"><a href="/team.html"><b><h2>Team</h2></b></a></li>
+            <li class="h2"><img src="/Photos/Frontpage/Your paragraph text.png" alt="" style="height: 70px;"></li>
+        </ul>      
+    </div>
+    <!-- Registration Form -->
+    <div class="container">
+        <h1>Urban Games</h1>
+        <form action="http://localhost:3002/urb" method="POST" id="registrationForm" onsubmit="return validateForm()" novalidate>
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="input-group">
+                <label for="contact">Contact Number:</label>
+                <input type="text" id="contact" name="contact">
+            </div>
+            <div class="error" id="contactError"></div>
+            <div class="input-group">
+                <label for="game">Select Game:</label>
+                <select id="game" name="game">
+                    <option value="">Select</option>
+                    <option value="paintball">Paintball</option>
+                    <option value="eliminator">Eliminator</option>
+                    <option value="human-foosball">Human Foosball</option>
+                    <option value="jenga">Jenga</option>
+                </select>
+            </div>
+            <div class="error" id="groupError"></div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <!-- JavaScript for Form Validation and Redirection -->
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+    
+            console.log("Form submitted");
+            const name = document.getElementById("name").value;
+            const contactNumber = document.getElementById("contact").value;
+            const selectGame = document.getElementById("game").value;
+            
+                // Log the form data to verify if it's captured correctly
+            console.log("Name:", name);
+            console.log("Contact:", contactNumber);
+            console.log("Game:", selectGame);
+
+            // Validate participant name (5-15 letters)
+            if (!/^[a-zA-Z ]{5,15}$/.test(name)) {
+                alert("Participant name must be 5-15 letters.");
+                return;
+            }
+    
+            // Validate contact number
+            if (!/^\d{10}$/.test(contactNumber)) {
+                alert("Please enter a valid 10-digit contact number.");
+                return;
+            }
+    
+            // Validate game selection
+            if (selectGame === "") {
+                alert("Please select a game.");
+                return;
+            }
+    
+            // Prepare data to be sent to the server
+            const formData = {
+            name: name,
+            'contact': contactNumber,
+            selectGame: selectGame
+        };
+
+    fetch("http://localhost:3002/urb", {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error); // Display the error message
+            } else {
+                alert("Record inserted successfully"); // Show success message or redirect
+                // Redirect to Amb_event.html after successful insertion
+                console.log("Redirecting to Protsahan.html");
+                window.location.href = "Protsahan.html";
+
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+    </script>
+    
+    <!-- Footer -->
+    <footer>
+        <ul class="social_icon">
+            <li><a href="https://www.instagram.com/protsahanculturalfest/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://youtu.be/fscoN_2PRjQ?feature=shared"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="/Frontpage.html">Home</a></li>
+            <li><a href="/Ambiora/Amb.html">Ambiora</a></li>
+            <li><a href="/Protsahan/prost.html">Protsahan</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Report an issue</a></li>
+        </ul>
+        <p>&copy; 2024 Fusion Fest Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

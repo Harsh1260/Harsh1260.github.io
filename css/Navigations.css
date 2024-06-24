@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for unordered and ordered lists with class "nav-list" */
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* Styling for navigation bar with class "Navi" */
+.Navi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for list items */
+.nav-list li {
+    float: right;
+}
+
+/* Styling for list item links */
+.nav-list li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 25px 10px;
+    text-decoration: none;
+}
+
+/* Hover effect for list item links */
+.nav-list li a:hover {
+    background-color: rgb(255, 106, 0);
+    color: white;
+    padding: 20px 10px; 
+    transition: padding 0.3s ease; 
+}
+
+/* Margin between list items */
+.nav-list li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.h2{
+    color: black;
+    float:left;
+    margin-top: 5px;
+    margin-right: 800px;
+}

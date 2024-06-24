@@ -1,0 +1,25 @@
+.social-icons {
+    position: absolute;
+    bottom: 20px; 
+    left: 10px;
+    top: calc(80% + 1200px);
+    z-index: 1; 
+}
+
+.social-icons li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 36px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: gold;
+    transform: scale(1.2);
+}
